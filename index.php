@@ -36,6 +36,12 @@
             'distance_to_center' => 50
         ],
     ];
+
+    <?php foreach ($hotel as $key){
+        if($key === 'parking'){
+            echo "<td>SI</td>"
+        }
+    }
 ?>
 
 
@@ -50,6 +56,40 @@
     <title>PHP HOTEL</title>
 </head>
 <body>
-    
+    <table class="table">
+        <thead>
+            <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">Descrizione</th>
+            <th scope="col">Parcheggio</th>
+            <th scope="col">Stelle</th>
+            <th scope="col">Distanza dal centro</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($hotels as $hotel): ?>
+                <tr>
+                    <th>
+                        <?php echo $hotel['name']?>
+                    </th>
+                    <td>
+                        <?php echo $hotel['description']?>
+                    </td>
+                    <td>
+                        <?php echo $hotel['parking']? 'SI' : 'NO'?>
+                    </td>
+                    <td>
+                        <?php echo $hotel['vote']?>
+                    </td>
+                    <td>
+                        <?php echo $hotel['distance_to_center']?>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+
+
+
 </body>
 </html>
